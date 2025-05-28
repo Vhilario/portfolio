@@ -15,7 +15,7 @@ export default [
 		summary: "This is the first blog post",
 		author: "Vincent Hilario",
 		category: "Personal Reflection",
-		image: "TBD",
+		image: "https://placehold.co/400",
 		link: "TBD",
 	tags: ["vincent", "life"]
 	},
@@ -27,5 +27,15 @@ export default [
 		author: "Vincent Hilario",
 		category: "Technical Article",
 		tags: ["sveltekit", "react"],
+	},
+	{
+		id: 3,
+		title: "Third Blog Post",
+		date: "2025-05-28",
+		summary: "This is the third blog post",
+		author: "Vincent Hilario",
+		category: "Test Blog Post",
+		image: "https://placehold.co/1600x900",
+		tags: ["idk", "stuff"],
 	}
 ];
