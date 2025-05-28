@@ -2,6 +2,7 @@
 	import * as Drawer from "$lib/components/ui/drawer/index.js";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { IsMobile } from "$lib/hooks/is-mobile.svelte.js";
+	import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js";
 	import type { Schema } from "./schemas.js";
 
 	const isMobile = new IsMobile();
@@ -27,13 +28,17 @@
 			{#if !isMobile.current}
 				<div class="flex flex-col gap-4">
 					{#if item.image}
-						<img src={item.image} alt={item.title} class="w-full h-auto" />
+						<AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+							<img src={item.image} alt={item.title} class="w-full h-full object-cover" />
+						</AspectRatio>
 					{/if}
 				</div>
 			{:else}
 				<div class="flex flex-col gap-4">
 					{#if item.image}
-						<img src={item.image} alt={item.title} class="w-full h-auto" />
+						<AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+							<img src={item.image} alt={item.title} class="w-full h-full object-cover" />
+						</AspectRatio>
 					{/if}
 				</div>
 			{/if}
