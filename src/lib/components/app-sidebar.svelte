@@ -19,6 +19,7 @@
 	import NavSecondary from "./nav-secondary.svelte";
 	import NavUser from "./nav-user.svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import { Separator } from "$lib/components/ui/separator/index.js";
 	import type { ComponentProps } from "svelte";
 
 	const data = {
@@ -148,7 +149,7 @@
 				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:!p-1.5">
 					{#snippet child({ props })}
 						<a href="##" {...props}>
-							<InnerShadowTopIcon class="!size-5" />
+							
 							<span class="text-base font-semibold">Vincent Hilario</span>
 						</a>
 					{/snippet}
@@ -162,6 +163,6 @@
 		<NavSecondary items={data.navSecondary} class="mt-auto" />
 	</Sidebar.Content>
 	<Sidebar.Footer>
-		<NavUser user={data.user} />
+		<!-- <NavUser user={data.user} /> -->
 	</Sidebar.Footer>
 </Sidebar.Root>

@@ -25,50 +25,27 @@
 			enableHiding: false,
 		},
 		{
-			accessorKey: "header",
-			header: "Header",
+			accessorKey: "title",
+			header: "Title",
 			cell: ({ row }) => renderComponent(DataTableCellViewer, { item: row.original }),
 			enableHiding: false,
 		},
 		{
-			accessorKey: "type",
-			header: "Section Type",
-			cell: ({ row }) => renderSnippet(DataTableType, { row }),
+			accessorKey: "date",
+			header: "Date",
+			cell: ({ row }) => row.original.date,
 		},
 		{
-			accessorKey: "status",
-			header: "Status",
-			cell: ({ row }) => renderSnippet(DataTableStatus, { row }),
+			accessorKey: "category",
+			header: "Category",
+			cell: ({ row }) => row.original.category,
 		},
 		{
-			accessorKey: "target",
-			header: () =>
-				renderSnippet(
-					createRawSnippet(() => ({
-						render: () => '<div class="w-full text-right">Target</div>',
-					}))
-				),
-			cell: ({ row }) => renderSnippet(DataTableTarget, { row }),
-		},
-		{
-			accessorKey: "limit",
-			header: () =>
-				renderSnippet(
-					createRawSnippet(() => ({
-						render: () => '<div class="w-full text-right">Limit</div>',
-					}))
-				),
-			cell: ({ row }) => renderSnippet(DataTableLimit, { row }),
-		},
-		{
-			accessorKey: "reviewer",
-			header: "Reviewer",
-			cell: ({ row }) => renderComponent(DataTableReviewer, { row }),
-		},
-		{
-			id: "actions",
-			cell: () => renderSnippet(DataTableActions),
-		},
+			accessorKey: "tags",
+			header: "Tags",
+			cell: ({ row }) => renderSnippet(DataTableTags, { row }),
+		}
+		
 	];
 </script>
 
@@ -486,7 +463,7 @@
 	</form>
 {/snippet}
 
-{#snippet DataTableType({ row }: { row: Row<Schema> })}
+<!-- {#snippet DataTableType({ row }: { row: Row<Schema> })}
 	<div class="w-32">
 		<Badge variant="outline" class="text-muted-foreground px-1.5">
 			{row.original.type}
@@ -503,7 +480,7 @@
 		{/if}
 		{row.original.status}
 	</Badge>
-{/snippet}
+{/snippet} -->
 
 {#snippet DataTableActions()}
 	<DropdownMenu.Root>
@@ -560,4 +537,12 @@
 		<GripVerticalIcon class="text-muted-foreground size-3" />
 		<span class="sr-only">Drag to reorder</span>
 	</Button>
+{/snippet}
+
+{#snippet DataTableTags({ row }: { row: Row<Schema> })}
+	<div class="flex flex-wrap gap-1">
+		{#each row.original.tags as tag}
+			<Badge variant="secondary" class="px-2 py-0.5 text-xs">#{tag}</Badge>
+		{/each}
+	</div>
 {/snippet}
