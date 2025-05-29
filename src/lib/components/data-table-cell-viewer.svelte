@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ArticleIcon from "@tabler/icons-svelte/icons/article";
 	import * as Drawer from "$lib/components/ui/drawer/index.js";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { IsMobile } from "$lib/hooks/is-mobile.svelte.js";
@@ -6,7 +7,6 @@
 	import type { Schema } from "./schemas.js";
 
 	const isMobile = new IsMobile();
-
 	let { item }: { item: Schema } = $props();
 
 </script>
@@ -47,10 +47,11 @@
 
 		</div>
 		<Drawer.Footer>
-			<Button>Read More:</Button>
+			<Button><ArticleIcon />Read More</Button>
 			<Drawer.Close>
 				{#snippet child({ props })}
 					<Button variant="outline" {...props}>Done</Button>
+					
 				{/snippet}
 			</Drawer.Close>
 		</Drawer.Footer>
