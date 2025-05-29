@@ -41,7 +41,6 @@
 	import type { Schema } from "./schemas.js";
 	import { createSvelteTable } from "$lib/components/ui/data-table/data-table.svelte.js";
 	import * as Table from "$lib/components/ui/table/index.js";
-	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import * as Select from "$lib/components/ui/select/index.js";
 	import { Label } from "$lib/components/ui/label/index.js";
@@ -52,9 +51,7 @@
 		renderComponent,
 		renderSnippet,
 	} from "$lib/components/ui/data-table/index.js";
-	import LayoutColumnsIcon from "@tabler/icons-svelte/icons/layout-columns";
-	import ChevronDownIcon from "@tabler/icons-svelte/icons/chevron-down";
-	import PlusIcon from "@tabler/icons-svelte/icons/plus";
+
 	import ChevronsLeftIcon from "@tabler/icons-svelte/icons/chevrons-left";
 	import ChevronLeftIcon from "@tabler/icons-svelte/icons/chevron-left";
 	import ChevronRightIcon from "@tabler/icons-svelte/icons/chevron-right";
