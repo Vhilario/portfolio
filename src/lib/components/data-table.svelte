@@ -7,14 +7,14 @@
 			enableHiding: false,
 		},
 		{
-			accessorKey: "date",
-			header: "Date",
-			cell: ({ row }) => row.original.date,
-		},
-		{
 			accessorKey: "category",
 			header: "Category",
 			cell: ({ row }) => row.original.category,
+		},
+		{
+			accessorKey: "date",
+			header: "Date",
+			cell: ({ row }) => row.original.date,
 		},
 		{
 			accessorKey: "tags",

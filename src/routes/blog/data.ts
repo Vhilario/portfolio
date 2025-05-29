@@ -13,6 +13,7 @@ export default [
 	{
 		id: 1,
 		title: "First Blog Post", 
+		slug: "first-blog-post",
 		date: "2024-06-15",
 		summary: "This is the first blog post",
 		author: "Vincent Hilario",
@@ -24,6 +25,7 @@ export default [
 	{
 		id: 2,
 		title: "Second Blog Post",
+		slug: "second-blog-post",
 		date: "2024-09-03", 
 		summary: "This is the second blog post",
 		author: "Vincent Hilario",
@@ -33,6 +35,7 @@ export default [
 	{
 		id: 3,
 		title: "Third Blog Post",
+		slug: "third-blog-post",
 		date: "2025-01-12",
 		summary: "This is the third blog post", 
 		author: "Vincent Hilario",
@@ -43,6 +46,7 @@ export default [
 	{
 		id: 4,
 		title: "My Best Purchases in 2024",
+		slug: "my-best-purchases-in-2024",
 		date: "2025-01-23",
 		summary: "2024 was a year of growth and change for me. I made some great purchases that helped me improve my life and my health. Here are some of my best purchases from the year.",
 		author: "Vincent Hilario",
@@ -53,6 +57,7 @@ export default [
 	{
 		id: 5,
 		title: "My Fitness Journey",
+		slug: "my-fitness-journey",
 		date: "2025-05-29",
 		summary: "In August 2024, I finally decided to start taking care of my health. Here's some of the things I've learned along the way.",
 		author: "Vincent Hilario",
@@ -63,6 +68,7 @@ export default [
 	{
 		id: 6,
 		title: "How Svelte Stole My Heart",
+		slug: "how-svelte-stole-my-heart",
 		date: "2025-03-05",
 		summary: "It's really good, but I'm not sure if it'll get me a job.",
 		author: "Vincent Hilario",
@@ -73,6 +79,7 @@ export default [
 	{
 		id: 7,
 		title: "Grinding LeetCode, Ugh.",
+		slug: "grinding-leetcode-ugh",
 		date: "2025-02-17",
 		summary: "It makes me hate the player AND the game.",
 		author: "Vincent Hilario",
@@ -83,6 +90,7 @@ export default [
 	{
 		id: 8,
 		title: "The Harbor Freight Database",
+		slug: "the-harbor-freight-database",
 		date: "2021-01-30",
 		summary: "My first real group coding project, built for my Software Development class at UT Tyler.",
 		author: "Vincent Hilario",
@@ -93,6 +101,7 @@ export default [
 	{
 		id: 9,
 		title: "I'm Addicted to The New York Times Games",
+		slug: "im-addicted-to-the-new-york-times-games",
 		date: "2025-05-29",
 		summary: "Here's my justification for why I don't think that's a bad thing.",
 		author: "Vincent Hilario",
@@ -103,6 +112,7 @@ export default [
 	{
 		id: 10,
 		title: "I'm Addicted to Daily Games",
+		slug: "im-addicted-to-daily-games",
 		date: "2025-05-29",
 		summary: "Here's my justification for why I don't think that's a bad thing.",
 		author: "Vincent Hilario",
@@ -113,6 +123,7 @@ export default [
 	{
 		id: 11,
 		title: "My Gaming Hobby",
+		slug: "my-gaming-hobby",
 		date: "2025-05-29",
 		summary: "Gaming has been a part of my life since I was old enough to hold a controller. Here's a look into my history with the entertainment medium.",
 		author: "Vincent Hilario",

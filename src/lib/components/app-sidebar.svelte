@@ -8,16 +8,17 @@
 	import FileWordIcon from "@tabler/icons-svelte/icons/file-word";
 	import FolderIcon from "@tabler/icons-svelte/icons/folder";
 	import HelpIcon from "@tabler/icons-svelte/icons/help";
-	import InnerShadowTopIcon from "@tabler/icons-svelte/icons/inner-shadow-top";
+	//import InnerShadowTopIcon from "@tabler/icons-svelte/icons/inner-shadow-top";
 	import ListDetailsIcon from "@tabler/icons-svelte/icons/list-details";
 	import ReportIcon from "@tabler/icons-svelte/icons/report";
 	import SearchIcon from "@tabler/icons-svelte/icons/search";
 	import SettingsIcon from "@tabler/icons-svelte/icons/settings";
 	import UsersIcon from "@tabler/icons-svelte/icons/users";
-	import NavDocuments from "./nav-documents.svelte";
-	import NavMain from "./nav-main.svelte";
-	import NavSecondary from "./nav-secondary.svelte";
-	import NavUser from "./nav-user.svelte";
+	// import NavDocuments from "./nav-documents.svelte";
+	// import NavMain from "./nav-main.svelte";
+	// import NavSecondary from "./nav-secondary.svelte";
+	// import NavUser from "./nav-user.svelte";
+	import BlogFilterMenu from "./blog-filter-menu.svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 	import { Separator } from "$lib/components/ui/separator/index.js";
 	import type { ComponentProps } from "svelte";
@@ -158,9 +159,11 @@
 		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
-		<NavMain items={data.navMain} />
+
+		<BlogFilterMenu />
+		<!-- <NavMain items={data.navMain} />
 		<NavDocuments items={data.documents} />
-		<NavSecondary items={data.navSecondary} class="mt-auto" />
+		<NavSecondary items={data.navSecondary} class="mt-auto" /> -->
 	</Sidebar.Content>
 	<Sidebar.Footer>
 		<!-- <NavUser user={data.user} /> -->
