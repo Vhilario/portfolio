@@ -36,7 +36,7 @@ export default [
 		id: 3,
 		title: "Third Blog Post",
 		slug: "third-blog-post",
-		date: "2025-01-12",
+		date: "2020-01-12",
 		summary: "This is the third blog post", 
 		author: "Vincent Hilario",
 		category: "Test Blog Post",
