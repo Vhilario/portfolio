@@ -8,7 +8,5 @@
 	<!-- MainNav always at the top -->
 	<!--<MainNav /> -->
 	<!-- Content below, scrollable if needed -->
-	<div class="flex-1 min-h-0 overflow-y-auto bg-blue-500">
-		{@render children()}
-	</div>
+	{@render children()}
 </div>
