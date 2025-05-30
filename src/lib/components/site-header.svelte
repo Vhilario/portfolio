@@ -12,16 +12,17 @@
 		<Separator orientation="vertical" class="mx-2 data-[orientation=vertical]:h-4" />
 		<h1 class="text-base font-medium">Blog</h1>
 		<div class="ml-auto flex items-center gap-2">
-			<Button
-				href="https://github.com/vhilario"
-				variant="ghost"
-				size="sm"
-				class="dark:text-foreground hidden sm:flex"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				GitHub
-			</Button>
+			<a href="/">
+				<Button
+					variant="ghost"
+					size="sm"
+					class="dark:text-foreground hidden sm:flex"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Back to Home
+				</Button>
+			</a>
 		</div>
 	</div>
 </header>
