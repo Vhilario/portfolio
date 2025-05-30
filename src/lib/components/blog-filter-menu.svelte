@@ -2,6 +2,7 @@
     import * as Sidebar from "$lib/components/ui/sidebar/index.js";
     import * as Collapsible from "$lib/components/ui/collapsible/index.js";
     import * as Select from "$lib/components/ui/select/index.js";
+    import { selectedDates, selectedTags } from '$lib/stores/blogFilters'
 
     import FilterIcon from "@tabler/icons-svelte/icons/filter";
     import CalendarIcon from "@tabler/icons-svelte/icons/calendar";
@@ -9,32 +10,27 @@
     import TagIcon from "@tabler/icons-svelte/icons/tag";
 
     import data from "../../routes/blog/data";
+
+    
     
     // Get unique, sorted years from blog data
     const dates: string[] = Array.from(new Set(data.map((post: any) => post.date.split('-')[0]))).sort().reverse()
 
-    let selectedDates: string[] = []
-
-    // Derived label for the trigger
-    $: selectedDatesLabel = selectedDates.length
-        ? selectedDates.sort().reverse().join(", ")
+    // Use the $ prefix for reactivity
+    $: selectedDatesLabel = $selectedDates.length
+        ? $selectedDates.sort().reverse().join(", ")
         : "Select years"
 
-    // Log whenever selectedDates changes
-    $: if (selectedDates) {
-        console.log("Selected dates:", selectedDates)
-    }
+    // Log changes (optional)
+    $: console.log("Selected dates:", $selectedDates)
 
-    const tags = Array.from(new Set(data.map((post: any) => post.tags).flat()))
-    let selectedTags: string[] = []
+    const tags = Array.from(new Set(data.flatMap((post: any) => post.tags)))
 
-    $: selectedTagsLabel = selectedTags.length
-        ? selectedTags.sort().join(", ")
+    $: selectedTagsLabel = $selectedTags.length
+        ? $selectedTags.sort().join(", ")
         : "Select tags"
 
-    $: if (selectedTags) {
-        console.log("Selected tags:", selectedTags)
-    }
+    $: console.log("Selected tags:", $selectedTags)
 </script>
 
 <Sidebar.Group class="group-data-[collapsible=icon]:hidden">
@@ -65,7 +61,7 @@
                 <Sidebar.GroupContent>
                     <div class='ml-4'>
                         
-                    <Select.Root type="multiple" bind:value={selectedDates}>
+                    <Select.Root type="multiple" bind:value={$selectedDates}>
                         <Select.Trigger
                             aria-label="Select years"
                         >
@@ -113,7 +109,7 @@
                 <Sidebar.GroupContent>
                     <div class='ml-4'>
                         
-                    <Select.Root type="multiple" bind:value={selectedTags}>
+                    <Select.Root type="multiple" bind:value={$selectedTags}>
                         <Select.Trigger
                             aria-label="Select tags"
                         >

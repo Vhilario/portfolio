@@ -15,11 +15,23 @@
 			accessorKey: "date",
 			header: "Date",
 			cell: ({ row }) => row.original.date,
+			filterFn: (row, columnId, filterValue) => {
+				if (!filterValue || filterValue.length === 0) return true
+				const rowDate = row.getValue(columnId) as string
+				const rowYear = rowDate.slice(0, 4)
+				return filterValue.includes(rowYear)
+			}
 		},
 		{
 			accessorKey: "tags",
 			header: "Tags",
 			cell: ({ row }) => renderSnippet(DataTableTags, { row }),
+			filterFn: (row, columnId, filterValue) => {
+				if (!filterValue || filterValue.length === 0) return true
+				const rowTags = (row.getValue(columnId) as string[]).map(tag => tag.toLowerCase())
+				const filterTags = filterValue.map((tag: string) => tag.toLowerCase())
+				return filterTags.some(tag => rowTags.includes(tag))
+			}
 		}
 	];
 </script>
@@ -58,12 +70,14 @@
 	import ChevronsRightIcon from "@tabler/icons-svelte/icons/chevrons-right";
 	import { toast } from "svelte-sonner";
 	import DataTableCellViewer from "./data-table-cell-viewer.svelte";
+	import { selectedDates, selectedTags } from '$lib/stores/blogFilters'
 
 	let { data }: { data: Schema[] } = $props();
 	let pagination = $state<PaginationState>({ pageIndex: 0, pageSize: 10 });
 	let sorting = $state<SortingState>([]);
 	let columnFilters = $state<ColumnFiltersState>([]);
 	let columnVisibility = $state<VisibilityState>({});
+	
 
 	const table = createSvelteTable({
 		get data() {
@@ -123,6 +137,8 @@
 </script>
 
 <div class="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
+	<Button variant="outline" onclick={() => table.getColumn('date')?.setFilterValue( new Array('2024', '2025'))}>Date Filtering</Button>	
+	<Button variant="outline" onclick={() => table.getColumn('tags')?.setFilterValue( new Array('svelte', 'sveltekit', 'software-development'))}>Tag Filtering</Button>	
 	<div class="overflow-hidden rounded-lg border">
 		<Table.Root>
 			<Table.Header class="bg-muted sticky top-0 z-10">
@@ -186,8 +202,7 @@
 				</Select.Root>
 			</div>
 			<div class="flex w-fit items-center justify-center text-sm font-medium">
-				Page {table.getState().pagination.pageIndex + 1} of
-				{table.getPageCount()}
+				Page {table.getPageCount() ? table.getState().pagination.pageIndex + 1 : 0} of {table.getPageCount()}
 			</div>
 			<div class="ml-auto flex items-center gap-2 lg:ml-0">
 				<Button
@@ -234,25 +249,6 @@
 	</div>
 </div>
 
-{#snippet DataTableLimit({ row }: { row: Row<Schema> })}
-	<form
-		onsubmit={(e) => {
-			e.preventDefault();
-			toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-				loading: `Saving ${row.original.header}`,
-				success: "Done",
-				error: "Error",
-			});
-		}}
-	>
-		<Label for="{row.original.id}-limit" class="sr-only">Limit</Label>
-		<Input
-			class="hover:bg-input/30 focus-visible:bg-background dark:hover:bg-input/30 dark:focus-visible:bg-input/30 h-8 w-16 border-transparent bg-transparent text-right shadow-none focus-visible:border dark:bg-transparent"
-			value={row.original.limit}
-			id="{row.original.id}-limit"
-		/>
-	</form>
-{/snippet}
 
 {#snippet DataTableTags({ row }: { row: Row<Schema> })}
 	<div class="flex flex-wrap gap-1">
