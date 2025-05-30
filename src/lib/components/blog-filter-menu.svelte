@@ -22,8 +22,6 @@
         ? $selectedDates.sort().reverse().join(", ")
         : "Select years"
 
-    // Log changes (optional)
-    $: console.log("Selected dates:", $selectedDates)
 
     const tags = Array.from(new Set(data.flatMap((post: any) => post.tags)))
 
