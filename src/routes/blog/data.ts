@@ -67,7 +67,7 @@ export default [
 	},
 	{
 		id: 6,
-		title: "How Svelte Stole My Heart",
+		title: "How Svelte Made Me Stop Using React",
 		slug: "how-svelte-stole-my-heart",
 		date: "2025-03-05",
 		summary: "It's really good, but I'm not sure if it'll get me a job.",
@@ -96,7 +96,7 @@ export default [
 		author: "Vincent Hilario",
 		category: "Project Overview",
 		image: "https://placehold.co/1600x900",
-		tags: ["project", "software-development"],
+		tags: ["project", "software-dev"],
 	},
 	{
 		id: 9,
@@ -130,6 +130,17 @@ export default [
 		category: "Personal Reflection",
 		image: "https://placehold.co/1600x900",
 		tags: ["games", "vincent"],
+	},
+	{
+		id: 12,
+		title: "This Website: A Journey of Self-Taught Web Development",
+		slug: "this-website-a-journey-of-self-taught-web-development",
+		date: "2025-05-29",
+		summary: "I built this website using SvelteKit, Shadcn-svelte, and Tailwind CSS. Here's an overview of things that went right and wrong.",
+		author: "Vincent Hilario",
+		category: "Personal Reflection",
+		image: "https://placehold.co/1600x900",
+		tags: ["webdev", "sveltekit"],
 	},
 
 ];

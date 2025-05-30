@@ -2,6 +2,7 @@
     import * as Sidebar from "$lib/components/ui/sidebar/index.js";
     import * as Collapsible from "$lib/components/ui/collapsible/index.js";
     import * as Select from "$lib/components/ui/select/index.js";
+    import { Button } from "$lib/components/ui/button/index.js";
     import { selectedDates, selectedTags } from '$lib/stores/blogFilters'
 
     import FilterIcon from "@tabler/icons-svelte/icons/filter";
@@ -30,7 +31,7 @@
         ? $selectedTags.sort().join(", ")
         : "Select tags"
 
-    $: console.log("Selected tags:", $selectedTags)
+    
 </script>
 
 <Sidebar.Group class="group-data-[collapsible=icon]:hidden">
@@ -41,6 +42,7 @@
 
     {@render DateFilterGroup({label: "Date", icon: CalendarIcon})}
     {@render TagFilterGroup({label: "Tags", icon: TagIcon})}
+    
 </Sidebar.Group>
 
 

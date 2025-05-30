@@ -20,8 +20,15 @@
 	// import NavUser from "./nav-user.svelte";
 	import BlogFilterMenu from "./blog-filter-menu.svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import { Button } from "$lib/components/ui/button/index.js";
 	import { Separator } from "$lib/components/ui/separator/index.js";
 	import type { ComponentProps } from "svelte";
+
+	import { selectedDates, selectedTags } from '$lib/stores/blogFilters'
+	function resetFilter() {
+        $selectedDates = []
+        $selectedTags = []
+    }
 
 	const data = {
 		user: {
@@ -167,5 +174,8 @@
 	</Sidebar.Content>
 	<Sidebar.Footer>
 		<!-- <NavUser user={data.user} /> -->
+		<div class="flex items-center gap-2 px-5">
+			<Button class="ml-auto" onclick={resetFilter}>Reset</Button>
+		</div>
 	</Sidebar.Footer>
 </Sidebar.Root>

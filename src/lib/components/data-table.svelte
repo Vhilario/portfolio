@@ -57,7 +57,6 @@
 	import * as Select from "$lib/components/ui/select/index.js";
 	import { Label } from "$lib/components/ui/label/index.js";
 	import { Badge } from "$lib/components/ui/badge/index.js";
-	import { Input } from "$lib/components/ui/input/index.js";
 	import {
 		FlexRender,
 		renderComponent,
@@ -78,7 +77,29 @@
 	let columnFilters = $state<ColumnFiltersState>([]);
 	let columnVisibility = $state<VisibilityState>({});
 	
+	function arraysEqual(a: unknown[] | null, b: unknown[] | null) {
+		if (a === b) return true
+		if (!a || !b) return false
+		if (a.length !== b.length) return false
+		for (let i = 0; i < a.length; i++) {
+			if (a[i] !== b[i]) return false
+		}
+		return true
+	}
 
+	$effect(() => {
+		const tagsCol = table.getColumn('tags')
+		const dateCol = table.getColumn('date')
+
+		if (tagsCol && !arraysEqual(tagsCol.getFilterValue(), $selectedTags)) {
+			tagsCol.setFilterValue($selectedTags)
+		}
+		if (dateCol && !arraysEqual(dateCol.getFilterValue(), $selectedDates)) {
+			dateCol.setFilterValue($selectedDates)
+		}
+	})
+
+		
 	const table = createSvelteTable({
 		get data() {
 			return data;
@@ -137,8 +158,6 @@
 </script>
 
 <div class="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6">
-	<Button variant="outline" onclick={() => table.getColumn('date')?.setFilterValue( new Array('2024', '2025'))}>Date Filtering</Button>	
-	<Button variant="outline" onclick={() => table.getColumn('tags')?.setFilterValue( new Array('svelte', 'sveltekit', 'software-development'))}>Tag Filtering</Button>	
 	<div class="overflow-hidden rounded-lg border">
 		<Table.Root>
 			<Table.Header class="bg-muted sticky top-0 z-10">
