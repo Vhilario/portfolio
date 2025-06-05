@@ -15,14 +15,17 @@
 	<Drawer.Trigger>
 		{#snippet child({ props })}
 			<Button variant="link" class="text-foreground w-fit px-0 text-left" {...props}>
-				{item.title}
+				
+				<span class={"truncate overflow-hidden whitespace-nowrap block " + (isMobile.current ? "max-w-[250px]" : "lg:max-w-[350px] max-w-[300px]")}>
+					{item.title}
+				</span>
 			</Button>
 		{/snippet}
 	</Drawer.Trigger>
 	<Drawer.Content>
 		<Drawer.Header class="gap-1">
 			<Drawer.Title>{item.title}</Drawer.Title>
-			<Drawer.Description>{item.summary}</Drawer.Description>
+			<Drawer.Description>{item.description}</Drawer.Description>
 		</Drawer.Header>
 		<div class="flex flex-col gap-4 overflow-y-auto px-4 text-sm">
 			{#if !isMobile.current}

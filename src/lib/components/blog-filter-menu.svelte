@@ -9,21 +9,26 @@
     import CalendarIcon from "@tabler/icons-svelte/icons/calendar";
     import ChevronDownIcon from "@tabler/icons-svelte/icons/chevron-down";
     import TagIcon from "@tabler/icons-svelte/icons/tag";
+    import type { Post } from "$lib/types";
 
-    import data from "../../routes/blog/data";
+    import { onMount } from 'svelte';
 
-    
-    
-    // Get unique, sorted years from blog data
-    const dates: string[] = Array.from(new Set(data.map((post: any) => post.date.split('-')[0]))).sort().reverse()
+    let posts = [];
+    let dates: string[] = [];
+    let tags: string[] = [];
+
+    onMount(async () => {
+        const res = await fetch('/api/posts')
+        const postsData: Post[] = await res.json()
+        posts = postsData
+        dates = Array.from(new Set(postsData.map((post) => post.date.split('-')[0]))).sort().reverse()
+        tags = Array.from(new Set(postsData.flatMap((post) => post.tags)))
+    })
 
     // Use the $ prefix for reactivity
     $: selectedDatesLabel = $selectedDates.length
         ? $selectedDates.sort().reverse().join(", ")
         : "Select years"
-
-
-    const tags = Array.from(new Set(data.flatMap((post: any) => post.tags)))
 
     $: selectedTagsLabel = $selectedTags.length
         ? $selectedTags.sort().join(", ")

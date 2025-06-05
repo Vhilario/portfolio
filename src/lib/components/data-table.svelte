@@ -5,6 +5,7 @@
 			header: "Title",
 			cell: ({ row }) => renderComponent(DataTableCellViewer, { item: row.original }),
 			enableHiding: false,
+			size: 350,
 		},
 		{
 			accessorKey: "category",
@@ -70,6 +71,7 @@
 	import { toast } from "svelte-sonner";
 	import DataTableCellViewer from "./data-table-cell-viewer.svelte";
 	import { selectedDates, selectedTags } from '$lib/stores/blogFilters'
+	import { onMount } from "svelte";
 
 	let { data }: { data: Schema[] } = $props();
 	let pagination = $state<PaginationState>({ pageIndex: 0, pageSize: 10 });
@@ -87,6 +89,9 @@
 		return true
 	}
 
+	onMount(() => {
+		console.log(data)
+	})
 	$effect(() => {
 		const tagsCol = table.getColumn('tags')
 		const dateCol = table.getColumn('date')
@@ -119,7 +124,7 @@
 				return columnFilters;
 			},
 		},
-		getRowId: (row) => row.id.toString(),
+		getRowId: (_row, index) => index.toString(),
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
 		getSortedRowModel: getSortedRowModel(),
@@ -164,7 +169,10 @@
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
 					<Table.Row>
 						{#each headerGroup.headers as header (header.id)}
-							<Table.Head colspan={header.colSpan}>
+							<Table.Head
+								colspan={header.colSpan}
+								style={header.column.columnDef.size ? `width: ${header.column.columnDef.size}px; max-width: 400px;` : undefined}
+							>
 								{#if !header.isPlaceholder}
 									<FlexRender
 										content={header.column.columnDef.header}
@@ -178,10 +186,12 @@
 			</Table.Header>
 			<Table.Body class="**:data-[slot=table-cell]:first:w-8">
 				{#if table.getRowModel().rows?.length}
-					{#each table.getRowModel().rows as row (row.id)}
+					{#each table.getRowModel().rows as row, i (i)}
 						<Table.Row class="relative">
 							{#each row.getVisibleCells() as cell (cell.id)}
-								<Table.Cell>
+								<Table.Cell
+									style={cell.column.columnDef.size ? `width: ${cell.column.columnDef.size}px; max-width: 400px;` : undefined}
+								>
 									<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
 								</Table.Cell>
 							{/each}
