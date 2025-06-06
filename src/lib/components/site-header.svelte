@@ -2,6 +2,7 @@
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { Separator } from "$lib/components/ui/separator/index.js";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+	import ArrowLeftIcon from "@tabler/icons-svelte/icons/arrow-left";
 </script>
 
 <header
@@ -20,6 +21,7 @@
 					target="_blank"
 					rel="noopener noreferrer"
 				>
+					<ArrowLeftIcon />
 					Back to Home
 				</Button>
 			</a>

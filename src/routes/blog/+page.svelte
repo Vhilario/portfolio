@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { data } = $props()
-	//import data from "./data.js";
+	
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 	import AppSidebar from "$lib/components/app-sidebar.svelte";
 	import SiteHeader from "$lib/components/site-header.svelte";

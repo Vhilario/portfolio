@@ -5,6 +5,7 @@
 	import { IsMobile } from "$lib/hooks/is-mobile.svelte.js";
 	import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js";
 	import type { Schema } from "./schemas.js";
+	import ArrowLeftIcon from "@tabler/icons-svelte/icons/arrow-left";
 
 	const isMobile = new IsMobile();
 	let { item }: { item: Schema } = $props();
@@ -50,10 +51,18 @@
 
 		</div>
 		<Drawer.Footer>
-			<Button><ArticleIcon />Read More</Button>
+			<a href={`/blog/${item.slug}`} class="w-full">
+				<Button class="w-full">
+					<ArticleIcon />
+					Read More
+				</Button>
+			</a>
 			<Drawer.Close>
 				{#snippet child({ props })}
-					<Button variant="outline" {...props}>Done</Button>
+					<Button variant="outline" {...props}>
+						<ArrowLeftIcon />
+						<span class="mr-3">Back</span>
+					</Button>
 					
 				{/snippet}
 			</Drawer.Close>

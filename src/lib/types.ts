@@ -1,4 +1,4 @@
-export type Tags = 'sveltekit' | 'svelte'
+import type { Tags } from './tags'
 
 export type Post = {
     title: string
