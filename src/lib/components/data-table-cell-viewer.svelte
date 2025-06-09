@@ -40,7 +40,7 @@
 			{:else}
 				<div class="flex flex-col gap-4">
 					{#if item.image}
-						<AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+						<AspectRatio ratio={21 / 9} class="flex items-center justify-center">
 							<img src={item.image} alt={item.title} class="w-full h-full object-cover" />
 						</AspectRatio>
 					{/if}

@@ -5,10 +5,6 @@
     import { onMount } from "svelte";
 
     let { data } = $props();
-
-    // onMount(() => {
-    //     console.log(data)
-    // })
 </script>
 
 <svelte:head>
@@ -33,9 +29,7 @@
         {data.meta.description}
     </div>
 
-    {#if data.meta.image}
-        <img src={data.meta.image} alt={data.meta.title} class="w-full rounded-lg mb-8" />
-    {/if}
+   <data.content />
 </article>
 
 
