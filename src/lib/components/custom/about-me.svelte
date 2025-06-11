@@ -40,7 +40,7 @@
   });
 </script>
 
-<section bind:this={sectionEl} class="h-screen flex items-center justify-center">
+<section bind:this={sectionEl} class="h-screen flex items-center justify-center snap-center">
   <Card.Root class="w-full h-full max-w-2xl max-h-[60%] mx-2">
     <Card.Header>
       <Card.Title>About Me</Card.Title>
