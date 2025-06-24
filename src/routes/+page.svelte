@@ -1,12 +1,68 @@
+<script lang="ts" module>
+	//Email Form data
+	import { z } from 'zod/v4'
+	export const formSchema = z.object({
+		name: z.string().min(1, "Name is required."),
+		email: z.string().email("Please enter a valid email address."),
+		message: z.string().min(10, "Message must be at least 10 characters.").max(500, "Message must be at most 500 characters."),
+	});
+</script>
+
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import gsap from "gsap"
 	import { ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin } from "gsap/all"
 	import { Button } from '$lib/components/ui/button'
+	import * as Dialog from '$lib/components/ui/dialog/index.js'
+	import { Input } from '$lib/components/ui/input/index.js'
+
 	import ArrowDownIcon from "@tabler/icons-svelte/icons/arrow-down"
 	import BrandGithubIcon from "@tabler/icons-svelte/icons/brand-github"
 	import BrandLinkedinIcon from "@tabler/icons-svelte/icons/brand-linkedin"
 	import MailIcon from "@tabler/icons-svelte/icons/mail"
+	
+	//Email Form things
+	import { defaults, superForm } from "sveltekit-superforms";
+	import { zod4 } from "sveltekit-superforms/adapters";
+	import { toast } from "svelte-sonner";
+	import * as Form from "$lib/components/ui/form/index.js"
+	import { Textarea } from "$lib/components/ui/textarea/index.js"
+
+	import emailjs from "@emailjs/browser"
+
+	const form = superForm(defaults(zod4(formSchema)), {
+    validators: zod4(formSchema),
+    SPA: true,
+    onUpdate: ({ form: f }) => {
+      if (f.valid) {
+        sendEmail(f.data);
+      } else {
+        toast.error("Please fix the errors in the form.");
+      }
+    }});
+	const { form: formData, enhance } = form
+
+	const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+	const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+	const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+	
+	let sent = false;
+	
+	const sendEmail = (formData: any) => {
+		emailjs
+			.send(serviceId, templateId, formData, publicKey)
+			.then(
+				() => {
+					toast.success("Email sent successfully!")
+					sent = true;
+				},
+				(error) => {
+					toast.error('Failed to send email.')
+					console.error("EmailJS error:", error)
+				}
+			)
+	}
+	
 	
 	let smoothWrapper: HTMLElement
 	let heroSection: HTMLElement
@@ -126,7 +182,9 @@
 			descSplit.revert()
 		}
 	})
+
 </script>
+
 
 <svelte:head>
 	<title>Vincent Hilario</title>
@@ -156,12 +214,73 @@
 			
 			<!-- CTA Button -->
 			<div bind:this={ctaButton} class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-				<Button size="lg" class="px-8">
+				<Button size="lg" class="px-8 hover:cursor-pointer">
 					View Projects
 				</Button>
-				<Button variant="outline" size="lg" class="px-8">
-					Get in Touch
-				</Button>
+				<Dialog.Root>
+					<Dialog.Trigger>
+						<Button variant="outline" size="lg" class="px-8 hover:cursor-pointer">
+							Get in Touch
+						</Button>
+					</Dialog.Trigger>
+					<Dialog.Content class="sm:max-w-[425px] my-6">
+						<Dialog.Title>Contact Me</Dialog.Title>
+						<Dialog.Description>
+							Fill out the form below and I'll get back to you as soon as possible.
+						</Dialog.Description>
+						<form method="POST" class="flex flex-col gap-4 items-stretch" use:enhance>
+							<Form.Field {form} name="name">
+								<Form.Control>
+									{#snippet children({ props })}
+										<Form.Label class="text-left">Name</Form.Label>
+										<Input
+											{...props}
+											placeholder="Enter your name"
+											bind:value={$formData.name}
+											disabled={sent}
+										/>
+									{/snippet}
+								</Form.Control>
+								<Form.FieldErrors />
+							</Form.Field>
+							<Form.Field {form} name="email">
+								<Form.Control>
+									{#snippet children({ props })}
+										<Form.Label class="text-left">Email</Form.Label>
+										<Input
+											{...props}
+											placeholder="Enter your email address"
+											bind:value={$formData.email}
+											disabled={sent}
+										/>
+									{/snippet}
+								</Form.Control>
+								<Form.FieldErrors />
+							</Form.Field>
+							<Form.Field {form} name="message">
+								<Form.Control>
+									{#snippet children({ props })}
+										<Form.Label class="text-left">Message</Form.Label>
+										<Textarea
+											{...props}
+											placeholder="Enter your message here..."
+											class="h-[140px] resize-none"
+											bind:value={$formData.message}
+											disabled={sent}
+										/>
+										<Form.Description>
+											I'll get back to you as soon as possible!
+										</Form.Description>
+									{/snippet}
+								</Form.Control>
+								<Form.FieldErrors />
+							</Form.Field>
+							<Form.Button class="self-end" disabled={sent}>
+								{!sent ? "Send Message" : "Thanks for Sending!"}
+							</Form.Button>
+						</form>
+					</Dialog.Content>	
+				</Dialog.Root>
 			</div>
 			
 			<!-- Social Links -->
