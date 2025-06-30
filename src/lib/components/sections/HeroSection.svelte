@@ -20,6 +20,7 @@
 	import ArrowDownIcon from "@tabler/icons-svelte/icons/arrow-down"
 	import BrandGithubIcon from "@tabler/icons-svelte/icons/brand-github"
 	import BrandLinkedinIcon from "@tabler/icons-svelte/icons/brand-linkedin"
+	import FileSmileIcon from "@tabler/icons-svelte/icons/file-smile"
 	
 	//Email Form things
 	import { defaults, superForm } from "sveltekit-superforms";
@@ -263,10 +264,13 @@
 	<!-- Social Links -->
 	<div class="flex justify-center items-center space-x-6 text-muted-foreground">
 		<a href="https://github.com/vhilario" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
-			<BrandGithubIcon class="w-5 h-5" />
+			<BrandGithubIcon class="w-8 h-8" />
 		</a>
 		<a href="https://www.linkedin.com/in/vincenthilario/" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
-			<BrandLinkedinIcon class="w-5 h-5" />
+			<BrandLinkedinIcon class="w-8 h-8" />
+		</a>
+		<a href="Vincent Hilario.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+			<FileSmileIcon class="w-8 h-8" />
 		</a>
 	</div>
 </section>
