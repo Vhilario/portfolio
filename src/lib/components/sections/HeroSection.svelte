@@ -182,12 +182,12 @@
 	
 	<!-- Sub Heading -->
 	<h2 bind:this={subHeading} class="text-xl sm:text-2xl font-medium text-muted-foreground mb-6">
-		Full Stack Developer
+		Software Developer
 	</h2>
 	
 	<!-- Description -->
 	<p bind:this={description} class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-		I build modern web applications with clean code and thoughtful design. Currently focused on creating seamless user experiences.
+		I build modern web applications with clean code and thoughtful design. Currently focused on frontend development, but I'm always looking to learn new things.
 	</p>
 	
 	<!-- CTA Button -->

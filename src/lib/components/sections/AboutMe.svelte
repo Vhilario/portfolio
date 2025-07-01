@@ -83,13 +83,13 @@
             <div bind:this={aboutCardContent}>
                 <Card.Header>
                     <Card.Title>Vincent Hilario</Card.Title>
-                    <Card.Description>Full Stack Developer & UI/UX Enthusiast</Card.Description>
+                    <Card.Description>Software Developer</Card.Description>
                 </Card.Header>
                 <Card.Content>
                     <div class="flex flex-row gap-4">
                         <Carousel.Root plugins={[plugin]}
-                            onmouseenter={plugin.stop}
-                            onmouseleave={plugin.play}
+                            onmouseenter={() => plugin.stop()}
+                            onmouseleave={() => plugin.play()}
                             opts={{
                                 align: "start",
                                 loop: true,
@@ -97,16 +97,24 @@
                         >
                             <Carousel.Content class='w-full'>
                                 <Carousel.Item>
-                                    <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full object-cover">
+                                    <div class="flex flex-row gap-4">
+                                        <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-2/3 object-cover">
+                                        <p class="w-1/3">
+                                            I'm Vincent, a software developer with a passion for creating beautiful and functional web applications.
+                                        </p>
+                                    </div>
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full object-cover">
+                                    <div class="flex flex-row gap-4">
+                                        <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-2/3 object-cover">
+                                        <p class="w-1/3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+                                        </p>
+                                    </div>
                                 </Carousel.Item>
                             </Carousel.Content>
                         </Carousel.Root>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-                        </p>
+                        
                     </div>
                 </Card.Content>
             </div>
