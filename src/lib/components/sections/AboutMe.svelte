@@ -4,6 +4,10 @@
 	import { ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin } from "gsap/all"
 	import * as Card from "$lib/components/ui/card/index.js"
 
+    import Autoplay from "embla-carousel-autoplay"
+    import * as Carousel from "$lib/components/ui/carousel/index.js"
+    const plugin = Autoplay({ delay: 5000, stopOnInteraction: false });
+
 	
 	let aboutMeSection: HTMLElement
 	let sectionHeading: HTMLElement
@@ -82,9 +86,28 @@
                     <Card.Description>Full Stack Developer & UI/UX Enthusiast</Card.Description>
                 </Card.Header>
                 <Card.Content>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-                    </p>
+                    <div class="flex flex-row gap-4">
+                        <Carousel.Root plugins={[plugin]}
+                            onmouseenter={plugin.stop}
+                            onmouseleave={plugin.play}
+                            opts={{
+                                align: "start",
+                                loop: true,
+                              }}
+                        >
+                            <Carousel.Content class='w-full'>
+                                <Carousel.Item>
+                                    <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full object-cover">
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full object-cover">
+                                </Carousel.Item>
+                            </Carousel.Content>
+                        </Carousel.Root>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+                        </p>
+                    </div>
                 </Card.Content>
             </div>
         </Card.Root>
