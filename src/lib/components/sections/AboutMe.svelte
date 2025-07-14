@@ -2,13 +2,29 @@
 	import { onMount } from 'svelte'
 	import gsap from "gsap"
 	import { ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin } from "gsap/all"
-	import * as Card from "$lib/components/ui/card/index.js"
-
-    import Autoplay from "embla-carousel-autoplay"
-    import * as Carousel from "$lib/components/ui/carousel/index.js"
-    const plugin = Autoplay({ delay: 5000, stopOnInteraction: false });
-
 	
+    import { AspectRatio } from "$lib/components/ui/aspect-ratio/index.js"
+    import * as Card from "$lib/components/ui/card/index.js"
+    import * as Carousel from "$lib/components/ui/carousel/index.js"
+    import { Separator } from "$lib/components/ui/separator/index.js"
+
+    import ChevronCompactLeftIcon from "@tabler/icons-svelte/icons/chevron-compact-left"
+    import ChevronCompactRightIcon from "@tabler/icons-svelte/icons/chevron-compact-right"
+    import type { CarouselAPI } from "$lib/components/ui/carousel/context.js"
+
+    let api = $state<CarouselAPI>()
+    const count = $derived(api ? api.scrollSnapList().length : 0)
+    let current = $state(0)
+
+    $effect(() => {
+        if (api) {
+            current = api.selectedScrollSnap() + 1
+            api.on("select", () => {
+                current = api!.selectedScrollSnap() + 1
+            })
+        }
+    })
+
 	let aboutMeSection: HTMLElement
 	let sectionHeading: HTMLElement
 	let aboutCard: HTMLElement
@@ -78,46 +94,87 @@
 
 <section bind:this={aboutMeSection} class="max-w-3xl mx-auto relative">
 	<h1 class="text-4xl font-bold mb-4" bind:this={sectionHeading}>About Me</h1>
-    <div bind:this={aboutCard}>
+    <div bind:this={aboutCard} class="flex flex-row gap-4">
+        <div class="w-10 flex justify-center">
+            <button class="flex items-center h-full cursor-pointer" onclick={() => api?.scrollPrev()}>
+                <ChevronCompactLeftIcon class="w-16 h-16 text-gray-400" />
+            </button>
+        </div>
         <Card.Root class="w-full max-w-2xl mx-auto">
             <div bind:this={aboutCardContent}>
                 <Card.Header>
                     <Card.Title>Vincent Hilario</Card.Title>
                     <Card.Description>Software Developer</Card.Description>
                 </Card.Header>
+                <Separator class="my-3" />
                 <Card.Content>
                     <div class="flex flex-row gap-4">
-                        <Carousel.Root plugins={[plugin]}
-                            onmouseenter={() => plugin.stop()}
-                            onmouseleave={() => plugin.play()}
-                            opts={{
-                                align: "start",
-                                loop: true,
-                              }}
-                        >
-                            <Carousel.Content class='w-full'>
-                                <Carousel.Item>
-                                    <div class="flex flex-row gap-4">
-                                        <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-2/3 object-cover">
-                                        <p class="w-1/3">
-                                            I'm Vincent, a software developer with a passion for creating beautiful and functional web applications.
-                                        </p>
-                                    </div>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <div class="flex flex-row gap-4">
-                                        <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-2/3 object-cover">
-                                        <p class="w-1/3">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-                                        </p>
-                                    </div>
-                                </Carousel.Item>
-                            </Carousel.Content>
-                        </Carousel.Root>
-                        
+                        <div class="relative w-full">
+                            <Carousel.Root
+                                setApi={(emblaApi) => (api = emblaApi)}
+                                opts={{
+                                    align: "start",
+                                    loop: true,
+                                }}
+                            >
+                                <Carousel.Content class='w-full'>
+                                    <Carousel.Item>
+                                        <div class="flex flex-row gap-4">
+                                            <AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+                                                <img src="https://placehold.co/1600x900" alt="Vincent Hilario" class="w-full h-full object-cover">
+                                            </AspectRatio>
+                                            <p class="w-1/2">
+                                                I'm <span class="font-bold">Vincent Hilario</span>, a software developer from Tyler, Texas. Well, technically I'm a software tester, but I want to be a software developer someday.
+                                            </p>
+                                        </div>
+                                    </Carousel.Item>
+                                    <Carousel.Item>
+                                        <div class="flex flex-row gap-4">
+                                            <AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+                                                <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full h-full object-cover">
+                                            </AspectRatio>
+                                            <p class="w-1/2">
+                                                I'm looking for that first job to give me my break into the software engineering industry.
+                                            </p>
+                                        </div>
+                                    </Carousel.Item>
+                                    <Carousel.Item>
+                                        <div class="flex flex-row gap-4">
+                                            <AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+                                                <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full h-full object-cover">
+                                            </AspectRatio>
+                                            <p class="w-1/2">
+                                                I'd say I prefer frontend development, but I'm not afraid to get my hands dirty with the backend.
+                                            </p>
+                                        </div>
+                                    </Carousel.Item>
+                                    <Carousel.Item>
+                                        <div class="flex flex-row gap-4">
+                                            <AspectRatio ratio={16 / 9} class="flex items-center justify-center">
+                                                <img src="https://placehold.co/600x400" alt="Vincent Hilario" class="w-full h-full object-cover">
+                                            </AspectRatio>
+                                            <p class="w-1/2">
+                                                Other hobbies of mine include playing video games, biking, and well, coding.
+                                            </p>
+                                        </div>
+                                    </Carousel.Item>
+                                </Carousel.Content>
+                            </Carousel.Root>
+                            
+                        </div>
                     </div>
                 </Card.Content>
+                <Card.Footer>
+                    <div class="text-muted-foreground py-2 text-center text-sm">
+                        Slide {current} of {count}
+                    </div>
+                </Card.Footer>
             </div>
         </Card.Root>
+        <div class="w-10 flex justify-center">
+            <button class="flex items-center h-full cursor-pointer" onclick={() => api?.scrollNext()}>
+                <ChevronCompactRightIcon class="w-16 h-16 text-gray-400" />
+            </button>
+        </div>
     </div>
 </section>
