@@ -4,6 +4,7 @@
 	import { ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin } from "gsap/all"
 	import HeroSection from "$lib/components/sections/HeroSection.svelte"
 	import AboutMe from "$lib/components/sections/AboutMe.svelte"
+	import Projects from "$lib/components/sections/Projects.svelte"
 	
 	let smoothWrapper: HTMLElement
 	
@@ -38,6 +39,9 @@
 	</main>
 	<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
 		<AboutMe />
+	</main>
+	<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+		<Projects />
 	</main>
 </div>
 
