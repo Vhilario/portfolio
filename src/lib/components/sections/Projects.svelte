@@ -43,9 +43,9 @@
                                     <HoverCard.Content class="w-48 p-3 bg-white/95 backdrop-blur-sm border border-gray-200/50 shadow-lg">
                                         <div class="flex items-center gap-2">
                                             <LinkIcon class="w-4 h-4" />
-                                            <p class="text-sm font-medium text-gray-700">View Live Project</p>
+                                            <p class="text-sm font-medium">View Live Project</p>
                                         </div>
-                                        <p class="text-xs text-gray-500 mt-1">Opens in new tab</p>
+                                        <p class="text-xs mt-1">Opens in new tab</p>
                                     </HoverCard.Content>
                                 </HoverCard.Root>
                             {/if}
@@ -59,9 +59,9 @@
                                     <HoverCard.Content class="w-48 p-3 bg-white/95 backdrop-blur-sm border border-gray-200/50 shadow-lg">
                                         <div class="flex items-center gap-2">
                                             <GithubIcon class="w-4 h-4" />
-                                            <p class="text-sm font-medium text-gray-700">View Source Code</p>
+                                            <p class="text-sm font-medium">View Source Code</p>
                                         </div>
-                                        <p class="text-xs text-gray-500 mt-1">Opens in new tab</p>
+                                        <p class="text-xs mt-1">Opens in new tab</p>
                                     </HoverCard.Content>
                                 </HoverCard.Root>
                             {/if}
@@ -73,7 +73,7 @@
                     <AspectRatio ratio={16 / 9} class="flex items-center justify-center">
                         <img src={project.image} alt={project.title} class="w-full h-full object-cover" />
                     </AspectRatio>
-                    <p class="text-sm text-gray-500">{project.description}</p>
+                    <p class="text-sm">{project.description}</p>
                 </Card.Content>
                 <Separator class="my-2" />
                 <Card.Footer>
