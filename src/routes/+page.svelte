@@ -7,6 +7,7 @@
 	import Projects from "$lib/components/sections/Projects.svelte"
 	
 	let smoothWrapper: HTMLElement
+	let smoothContent: HTMLElement
 	
 	onMount(() => {
 		gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin)
@@ -14,7 +15,7 @@
 		// Initialize smooth scrolling
 		const smoother = ScrollSmoother.create({
 			wrapper: smoothWrapper,
-			content: smoothWrapper,
+			content: smoothContent,
 			smooth: 1,
 			effects: true
 		})
@@ -33,16 +34,18 @@
 </svelte:head>
 
 <div bind:this={smoothWrapper} id="smooth-wrapper" class="fixed inset-0 overflow-hidden bg-background">
-	<!-- Main Content -->
-	<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-		<HeroSection />
-	</main>
-	<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-		<AboutMe />
-	</main>
-	<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-		<Projects />
-	</main>
+	<div bind:this={smoothContent} class="relative">
+		<!-- Main Content -->
+		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<HeroSection />
+		</main>
+		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<AboutMe />
+		</main>
+		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<Projects />
+		</main>
+	</div>
 </div>
 
 <style>
