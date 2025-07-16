@@ -184,7 +184,20 @@
                                                 <li>Favorite Video Game: <span class="bg-gray-400 text-white px-2 py-1 rounded-md">Battlefield 4</span></li>
                                                 <li>Favorite Movie: <span class="bg-[#82cad6] text-red-500 px-2 py-1 rounded-md">Nacho Libre</span></li>
                                                 <li>I went to the same High School as: <span class="bg-red-500 text-yellow-400 px-2 py-1 rounded-md">Patrick Mahomes</span></li>
+                                                <li>I love to play daily games, especially:
+                                                    <ul class="pl-6 space-y-1">
+                                                        <li class="flex items-center gap-2">
+                                                            <span class="inline-block w-2 h-2 border-2 border-gray-500 rounded-full mr-2"></span>
+                                                            <span class="bg-[#b4a8fe] text-white px-2 py-1 rounded-md">NYT Connections</span>
+                                                        </li>
+                                                        <li class="flex items-center gap-2">
+                                                            <span class="inline-block w-2 h-2 border-2 border-gray-500 rounded-full mr-2"></span>
+                                                            <a href="https://www.minutecryptic.com" target="_blank" class="bg-[#f1b1ff] px-2 py-1 rounded-md underline">Minute Cryptic</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </ul>
+
                                         </div>
                                     </Carousel.Item>
                                 </Carousel.Content>
