@@ -40,7 +40,7 @@
                                             <LinkIcon class="w-4 h-4" />
                                         </Button.Root>
                                     </HoverCard.Trigger>
-                                    <HoverCard.Content class="w-48 p-3 bg-white/95 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+                                    <HoverCard.Content class="w-48 p-3 backdrop-blur-sm border border-gray-200/50 shadow-lg">
                                         <div class="flex items-center gap-2">
                                             <LinkIcon class="w-4 h-4" />
                                             <p class="text-sm font-medium">View Live Project</p>
@@ -56,7 +56,7 @@
                                             <GithubIcon class="w-4 h-4" />
                                         </Button.Root>
                                     </HoverCard.Trigger>
-                                    <HoverCard.Content class="w-48 p-3 bg-white/95 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+                                    <HoverCard.Content class="w-48 p-3 backdrop-blur-sm border border-gray-200/50 shadow-lg">
                                         <div class="flex items-center gap-2">
                                             <GithubIcon class="w-4 h-4" />
                                             <p class="text-sm font-medium">View Source Code</p>
