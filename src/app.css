@@ -146,9 +146,6 @@ html, body {
 
 /* Blog post styles */
 @layer components {
-  .prose {
-    @apply text-gray-900;
-  }
   /* the title, needs padding */
   .prose h1 {
     @apply text-4xl font-bold pb-4;
