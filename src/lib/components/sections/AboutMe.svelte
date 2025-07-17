@@ -311,14 +311,14 @@
 	{:else}
     <div bind:this={aboutCard} class="flex flex-col gap-3 px-4">
         <h1 class="mb-3 text-4xl font-bold" bind:this={sectionHeading}>About Me</h1>
-        <Card.Root class="mx-auto w-full max-w-md min-w-0">
+        <Card.Root class="grid grid-cols-1">
             <div bind:this={aboutCardContent}>
                 <Card.Header>
                     <Card.Title class="text-lg">Vincent Hilario</Card.Title>
                     <Card.Description class="text-sm">Software Developer</Card.Description>
                 </Card.Header>
                 <Separator class="my-2" />
-                <Card.Content>
+                <Card.Content class="px-2">
                     <div class="flex flex-col gap-3">
                         <div class="relative w-full min-w-0">
                             <Carousel.Root
@@ -489,14 +489,14 @@
                 <Card.Footer>
                     <div class="flex flex-row items-center justify-between gap-2 w-full">
                         <span class="text-muted-foreground text-sm">Slide {current} of {count}</span>
-                        <div class="flex flex-row gap-2">
-                            <Button.Root variant="outline"  onclick={() => api?.scrollPrev()}>
-                                <ChevronCompactLeftIcon class="h-4 w-4" />
-                                Previous
+                        <div class="flex flex-row gap-1 sm:gap-2">
+                            <Button.Root variant="outline" size="sm" class="text-xs px-2 sm:px-3" onclick={() => api?.scrollPrev()}>
+                                <ChevronCompactLeftIcon class="h-3 w-3 sm:h-4 sm:w-4" />
+                                <span class="hidden sm:inline">Previous</span>
                             </Button.Root>
-                            <Button.Root variant="outline" onclick={() => api?.scrollNext()}>
-                                Next
-                                <ChevronCompactRightIcon class="h-4 w-4" />
+                            <Button.Root variant="outline" size="sm" class="text-xs px-2 sm:px-3" onclick={() => api?.scrollNext()}>
+                                <span class="hidden sm:inline">Next</span>
+                                <ChevronCompactRightIcon class="h-3 w-3 sm:h-4 sm:w-4" />
                             </Button.Root>
                         </div>
                     </div>
