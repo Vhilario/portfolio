@@ -129,7 +129,7 @@
 								<Carousel.Root
 									setApi={(emblaApi) => (api = emblaApi)}
 									opts={{
-										align: 'start',
+										align: 'center',
 										loop: true
 									}}
 								>
@@ -318,24 +318,24 @@
                     <Card.Description class="text-sm">Software Developer</Card.Description>
                 </Card.Header>
                 <Separator class="my-2" />
-                <Card.Content class="px-2">
+                <Card.Content>
                     <div class="flex flex-col gap-3">
                         <div class="relative w-full min-w-0">
                             <Carousel.Root
                                 setApi={(emblaApi) => (api = emblaApi)}
                                 opts={{
-                                    align: 'start',
+                                    align: 'end',
                                     loop: true
                                 }}
                             >
                                 <Carousel.Content class="w-full min-w-0">
-                                    <Carousel.Item>
+                                    <Carousel.Item class="!pl-6">
                                         <div class="flex flex-col gap-3">
                                             <AspectRatio ratio={4 / 3} class="flex items-center justify-center">
                                             <img
                                                     src="/pictureofme.jpg"
                                                     alt="Vincent Hilario"
-                                                    class="h-full w-full rounded-md object-cover"
+                                                    class="h-full w-full max-w-lg rounded-md object-cover"
                                                 />
                                             </AspectRatio>
                                             <div class="flex flex-col gap-2 text-sm">
@@ -355,7 +355,7 @@
                                             </div>
                                         </div>
                                     </Carousel.Item>
-                                    <Carousel.Item>
+                                    <Carousel.Item class="!pl-6">
                                         <div class="flex flex-col gap-2 py-1">
                                             <h1 class="text-center text-lg font-bold">My Story:</h1>
                                             <p class="text-sm px-2">
@@ -377,12 +377,12 @@
                                             </p>
                                         </div>
                                     </Carousel.Item>
-                                    <Carousel.Item>
+                                    <Carousel.Item class="!pl-6">
                                         <div class="flex flex-col gap-3">
                                                 <img
                                                     src="/css_meme.png"
                                                     alt="Unfortunately Timed Frontend Failure"
-                                                    class="h-48 w-full object-cover rounded-md"
+                                                    class="h-48 w-full max-w-lg object-cover rounded-md"
                                                 />
                                             <p class="w-full text-sm">
                                                 I'd say I prefer <span class="font-bold">frontend</span> development, but
@@ -393,7 +393,7 @@
                                             </p>
                                         </div>
                                     </Carousel.Item>
-                                    <Carousel.Item>
+                                    <Carousel.Item class="!pl-6">
                                         <div class="flex flex-col gap-3">
                                                 <video
                                                     src="/biking.mp4"
@@ -421,7 +421,7 @@
                                             </div>
                                         </div>
                                     </Carousel.Item>
-                                    <Carousel.Item>
+                                    <Carousel.Item class="!pl-6">
                                         <div class="flex flex-col gap-2">
                                             <h1 class="text-center text-lg font-bold">Fun Facts About Me:</h1>
                                             <ul class="list-inside list-disc space-y-2 font-bold text-sm">
