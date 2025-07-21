@@ -20,7 +20,7 @@
   
     <!-- force-disable any max‑width and stretch to viewport width -->
     <Dialog.Content
-      class="!max-w-none !w-screen !h-auto max-h-[80vh] border-0 bg-transparent p-0"
+      class="!max-w-5xl !w-screen !h-auto max-h-[100vh] border-0 bg-transparent p-0"
     >
       <img
         src={src}

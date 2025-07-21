@@ -168,4 +168,17 @@ html, body {
   .prose p {
     @apply text-base;
   }
+  .prose a {
+    @apply text-2xl font-bold underline mx-auto;
+  }
+  .prose ul {
+    @apply list-disc pl-4;
+  }
+  .prose ol {
+    @apply list-decimal pl-4;
+  }
+  .prose li {
+    @apply text-base;
+  }
+  
 }

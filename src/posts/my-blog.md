@@ -2,7 +2,7 @@
 title: My Blog
 slug: my-blog
 description: In this post, I'll be talking about my journey with my blog, its features, and overall design.
-category: Blog
+category: Project Overview
 date: '2025-07-16'
 tags:
     - sveltekit
