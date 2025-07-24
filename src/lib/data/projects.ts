@@ -27,4 +27,17 @@ export const projects: Project[] = [
         github: "https://github.com/vhilario/simple-nyt-solutions",
         blogSlug: "simple-nyt-solutions",
     },
+    {
+        title: "Trane Technician App Page",
+        description: "A page in the Trane Technician (then Diagnostics) app, which allowed for a proprietary API to be manually sent to Trane Link systems. I worked on this project as part of my internship at Trane Technologies.",
+        image: "/trane-technician-app.png",
+        tags: ["TypeScript", "React-Native", "React-Redux"],
+        link: "https://play.google.com/store/apps/details?id=com.tranetechnologies.tranediagnostics&hl=en_US",
+    },
+    {
+        title: "Over-The-Air Update Project",
+        description: "This project was to make a proof-of-concept to speed up OTA updates by utilizing compression. I managed a 55% reduction in update time, and this implementation is currently in production. Done as an intern at Trane Technologies.",
+        image: "/trane-ota-update-compression.png",
+        tags: ["Embedded C", "Ruby", "Python"],
+    },
 ]
