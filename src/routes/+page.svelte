@@ -5,6 +5,7 @@
 	import HeroSection from "$lib/components/sections/HeroSection.svelte"
 	import AboutMe from "$lib/components/sections/AboutMe.svelte"
 	import Projects from "$lib/components/sections/Projects.svelte"
+	import Technologies from "$lib/components/sections/Technologies.svelte"
 	
 	let smoothWrapper: HTMLElement
 	let smoothContent: HTMLElement
@@ -44,6 +45,9 @@
 		</main>
 		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
 			<Projects />
+		</main>
+		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<Technologies />
 		</main>
 	</div>
 </div>
