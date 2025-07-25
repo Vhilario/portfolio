@@ -21,6 +21,11 @@
 	import BrandGithubIcon from "@tabler/icons-svelte/icons/brand-github"
 	import BrandLinkedinIcon from "@tabler/icons-svelte/icons/brand-linkedin"
 	import FileSmileIcon from "@tabler/icons-svelte/icons/file-smile"
+
+	//Dark Mode toggle
+	import SunIcon from '@tabler/icons-svelte/icons/sun';
+	import MoonIcon from '@tabler/icons-svelte/icons/moon';
+	import { toggleMode } from "mode-watcher";
 	
 	//Email Form things
 	import { defaults, superForm } from "sveltekit-superforms";
@@ -174,7 +179,18 @@
 	})
 </script>
 
+
+
 <section bind:this={heroSection} class="text-center max-w-3xl mx-auto">
+	<Button onclick={toggleMode} variant="outline" size="icon" class="absolute top-4 right-4">
+		<SunIcon
+		  class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 !transition-all dark:-rotate-90 dark:scale-0"
+		/>
+		<MoonIcon
+		  class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 !transition-all dark:rotate-0 dark:scale-100"
+		/>
+		<span class="sr-only">Toggle theme</span>
+	  </Button>
 	<!-- Main Heading -->
 	<h1 bind:this={mainHeading} class="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight tracking-tight">
 		Vincent Hilario

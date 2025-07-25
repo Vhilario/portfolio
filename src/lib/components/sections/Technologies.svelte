@@ -20,17 +20,6 @@
 
     import { mode } from "mode-watcher";
 
-    let nextJsColor = "#000000";
-	
-	// Subscribe to mode changes
-	mode.subscribe((currentMode) => {
-		if (currentMode === "light") {
-			nextJsColor = "#000000";
-		} else {
-			nextJsColor = "#ffffff";
-		}
-	});
-
 	let sectionHeading: HTMLElement;
 
     type Technology = {
@@ -38,6 +27,9 @@
         color: string;
         icon: typeof BrandSvelteIcon;
     }
+
+	// Reactive function to get Next.js color based on current mode
+	$: nextJsColor = $mode === "dark" ? "#ffffff" : "#000000";
 
 	const frontendTechnologies : Technology[] = [
 		{
@@ -132,9 +124,11 @@
 				{/each}
 			</div>
 		</div>
-
-
 	</div>
+
+    <p class="pt-4">For a full breakdown, check out my <a href="Vincent Hilario.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+        <span class="underline font-bold">resume</span>
+    </a>.</p>
 </section>
 
 {#snippet technologyIcon(technology: Technology)}
