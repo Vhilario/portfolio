@@ -6,6 +6,7 @@
 	import AboutMe from "$lib/components/sections/AboutMe.svelte"
 	import Projects from "$lib/components/sections/Projects.svelte"
 	import Technologies from "$lib/components/sections/Technologies.svelte"
+	import WorkExperience from "$lib/components/sections/WorkExperience.svelte"
 	
 	let smoothWrapper: HTMLElement
 	let smoothContent: HTMLElement
@@ -42,6 +43,9 @@
 		</main>
 		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
 			<AboutMe />
+		</main>
+		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<WorkExperience />
 		</main>
 		<main class="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
 			<Projects />
