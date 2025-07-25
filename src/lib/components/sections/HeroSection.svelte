@@ -161,14 +161,24 @@
 			}
 		)
 		
-		// Subtle scroll indicator animation
+		// Enhanced scroll indicator animation - more obvious
 		gsap.to(scrollIndicator, {
-			y: 5,
-			duration: 2,
+			y: 8,
+			duration: 1.5,
 			ease: "power2.inOut",
 			repeat: -1,
 			yoyo: true,
 			delay: 2
+		})
+		
+		// Add pulsing effect to the arrow
+		gsap.to(scrollIndicator.querySelector('.scroll-arrow'), {
+			scale: 1.1,
+			duration: 1,
+			ease: "power2.inOut",
+			repeat: -1,
+			yoyo: true,
+			delay: 2.5
 		})
 		
 		return () => {
@@ -291,21 +301,11 @@
 	</div>
 </section>
 
-<!-- Scroll Indicator -->
-<div bind:this={scrollIndicator} class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground">
-	<div class="flex flex-col items-center space-y-2">
-		<span class="text-sm">Scroll to explore</span>
-		<ArrowDownIcon class="w-4 h-4" />
+<!-- Enhanced Scroll Indicator -->
+<div bind:this={scrollIndicator} class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+	<div class="flex flex-col items-center space-y-3 bg-secondary backdrop-blur-sm border border-border/50 rounded-full px-6 py-4 shadow-lg">
+		<span class="text-sm font-bold">Scroll to explore</span>
+		<ArrowDownIcon class="w-6 h-6 text-primary scroll-arrow" />
 	</div>
 </div>
 
-<style>
-	.char {
-		display: inline-block;
-	}
-	
-	.word {
-		display: inline-block;
-		margin-right: 0.25em;
-	}
-</style>
