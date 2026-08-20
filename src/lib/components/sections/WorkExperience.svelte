@@ -1,6 +1,5 @@
 <script lang="ts">
     import * as Avatar from "$lib/components/ui/avatar/index.js";
-    import { Separator } from "$lib/components/ui/separator/index.js";
 </script>
 
 <section class="relative mx-auto max-w-3xl px-4 space-y-8">
@@ -13,6 +12,21 @@
             <div class="relative flex items-start gap-4">
                 <div class="relative z-10 flex-shrink-0">
                     <Avatar.Root class="w-12 h-12 border-2">
+                        <Avatar.Image src="/techservlogo.png" alt="Company Icon" />
+                        <Avatar.Fallback>TechServ</Avatar.Fallback>
+                    </Avatar.Root>
+                </div>
+                
+                <div class="flex-1 pt-1">
+                    <h2 class="text-xl md:text-2xl font-bold">Engineering Tech 1</h2>
+                    <h3>TechServ Consulting and Training</h3>
+                    <p class="text-sm text-muted-foreground">2026 - Present</p>
+                    <p class="mt-2 text-muted-foreground text-sm md:text-base">Conducted comprehensive integration testing for Trane Link systems and developed automated test frameworks to improve efficiency and coverage. Applied software development expertise to create robust automation solutions for complex testing scenarios.</p>
+                </div>
+            </div>
+            <div class="relative flex items-start gap-4">
+                <div class="relative z-10 flex-shrink-0">
+                    <Avatar.Root class="w-12 h-12 border-2">
                         <Avatar.Image src="/tranelogo.png" alt="Company Icon" />
                         <Avatar.Fallback>Trane</Avatar.Fallback>
                     </Avatar.Root>
@@ -20,7 +34,8 @@
                 
                 <div class="flex-1 pt-1">
                     <h2 class="text-xl md:text-2xl font-bold">Software Test Engineer</h2>
-                    <p class="text-sm text-muted-foreground">2024 - Present</p>
+                    <h3>Trane Technologies</h3>
+                    <p class="text-sm text-muted-foreground">2024 - 2025</p>
                     <p class="mt-2 text-muted-foreground text-sm md:text-base">Conducted comprehensive integration testing for Trane Link systems and developed automated test frameworks to improve efficiency and coverage. Applied software development expertise to create robust automation solutions for complex testing scenarios.</p>
                 </div>
             </div>
@@ -35,6 +50,7 @@
                 
                 <div class="flex-1 pt-1">
                     <h2 class="text-xl md:text-2xl font-bold">Software Engineer Intern</h2>
+                    <h3>Trane Technologies</h3>
                     <p class="text-sm text-muted-foreground">2023 - 2024</p>
                     <p class="mt-2 text-muted-foreground text-sm md:text-base">Developed file compression system for embedded environments, built pages for the Trane Diagnostics React-Native app. Collaborated with Controls team to implement new features and delivered performant code for Trane's production software stack.</p>
                 </div>
