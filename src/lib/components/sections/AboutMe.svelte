@@ -145,9 +145,7 @@
 												</AspectRatio>
 												<div class="flex flex-col gap-4">
 													<p>
-														I'm <span class="font-bold">Vincent Hilario</span>, a software developer
-														from Tyler, Texas. Well, technically I'm a software tester, but I want
-														to be a software developer someday.
+														I'm <span class="font-bold">Vincent Hilario</span>, a programmer from Tyler, TX.
 													</p>
 													<p>
 														I grew up in Quitman, Texas, before moving to Tyler in 2015, where I've
@@ -172,11 +170,7 @@
 													for.
 												</p>
 												<p class="text-md px-4">
-													I'm currently working as a <span class="font-bold"
-														>Software Test Engineer</span
-													>
-													at <span class="font-bold text-[#6400FF]">Trane Technologies</span>. My
-													current goal is to get my first job as a software developer, and I'm
+													My current goal is to get my first job as a software developer, and I'm
 													working towards that goal by learning new technologies and building my
 													portfolio.
 												</p>
