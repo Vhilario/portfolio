@@ -81,9 +81,12 @@ It didn't take me long to come up with something I liked, but I thought a websit
 #### SO I DID MORE!
 <ZoomableImage src="/nyt-solver.png" alt="NYT Solver Screenshot" />
 I gotta say, this was a lot of fun. You can view the live project at:
-
-<a href="https://simple-nyt-solutions.vercel.app" title="Simple NYT Solutions">simple-nyt-solutions.vercel.app</a>
+<h1>[REDACTED - see footnote]</h1>
+<!-- <a href="https://simple-nyt-solutions.vercel.app" title="Simple NYT Solutions">simple-nyt-solutions.vercel.app</a> -->
 <br>
+
+<b><u>Footnote: I had to remove the project, as there is a HUGE Vercel / Next.js vulnerability, and I want to make sure everything is updated well before I reupload it.
+If you'd like to see it, please leave me an inquiry using the "Contact Me" button on my main web page.</u></b>
 
 ### Things I learned along the way:
 - Server Side Rendering
